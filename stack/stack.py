@@ -80,36 +80,6 @@ class LinkedList:
             self.length -= 1
             return value
 
-    def contains(self, value):
-        if self.head is None:
-            return False
-
-        cur_node = self.head
-
-        while cur_node is not None:
-            if cur_node is None:
-                return False
-            elif cur_node.value == value:
-                return True
-            else:
-                cur_node = cur_node.get_next()        
-
-    def get_max(self):
-        if self.head is None:
-            return None
-        
-        cur_node = self.head
-        cur_max = self.head.get_value()
-
-        while cur_node is not None:
-            if cur_node.get_value() is None:
-                return cur_max
-            elif cur_node.get_value() > cur_max:
-                cur_max = cur_node.get_value()
-            cur_node = cur_node.get_next()
-
-        return cur_max
-
 class Stack:
     def __init__(self):
         self.storage = LinkedList()
