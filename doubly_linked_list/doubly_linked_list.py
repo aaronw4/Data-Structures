@@ -7,6 +7,12 @@ class ListNode:
         self.prev = prev
         self.value = value
         self.next = next
+
+    def set_next(self, new_next):
+        self.next = new_next
+
+    def set_prev(self, new_prev):
+        self.prev = new_prev
             
 """
 Our doubly-linked list class. It holds references to 
@@ -27,7 +33,15 @@ class DoublyLinkedList:
     the old head node's previous pointer accordingly.
     """
     def add_to_head(self, value):
-        pass
+        if self.length == 0:
+            new_node = ListNode(value)
+            self.tail = new_node
+        else:
+            new_node = ListNode(value, None, self.head)
+            self.head.set_prev(new_node)
+        
+        self.head = new_node
+        self.length += 1
         
     """
     Removes the List's current head node, making the
