@@ -17,7 +17,23 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        curr_node = self
+
+        while curr_node is not None:
+            if value < curr_node.value:
+                if curr_node.left is None:
+                    curr_node.left = BSTNode(value)
+                    curr_node = None
+                else:
+                    curr_node = curr_node.left
+            elif value >= curr_node.value:
+                if curr_node.right is None:
+                    curr_node.right = BSTNode(value)
+                    curr_node = None
+                else: 
+                    curr_node = curr_node.right
+
+
 
     # Return True if the tree contains the value
     # False if it does not
@@ -63,23 +79,23 @@ class BSTNode:
 """
 This code is necessary for testing the `print` methods
 """
-bst = BinarySearchTree(1)
+# bst = BinarySearchTree(1)
 
-bst.insert(8)
-bst.insert(5)
-bst.insert(7)
-bst.insert(6)
-bst.insert(3)
-bst.insert(4)
-bst.insert(2)
+# bst.insert(8)
+# bst.insert(5)
+# bst.insert(7)
+# bst.insert(6)
+# bst.insert(3)
+# bst.insert(4)
+# bst.insert(2)
 
-bst.bft_print()
-bst.dft_print()
+# bst.bft_print()
+# bst.dft_print()
 
-print("elegant methods")
-print("pre order")
-bst.pre_order_dft()
-print("in order")
-bst.in_order_dft()
-print("post order")
-bst.post_order_dft()  
+# print("elegant methods")
+# print("pre order")
+# bst.pre_order_dft()
+# print("in order")
+# bst.in_order_dft()
+# print("post order")
+# bst.post_order_dft()  
