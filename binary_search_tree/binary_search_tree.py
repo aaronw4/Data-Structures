@@ -9,6 +9,7 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -77,17 +78,41 @@ class BSTNode:
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self):
-        pass
+        if self:
+            if self.left:
+                self.left.in_order_print()
+            print(self.value)
+            if self.right:
+                self.right.in_order_print()
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
     def bft_print(self):
-        pass
+        queue = []      
+        queue.append(self)
+
+        while len(queue) > 0:
+            node = queue.pop(0)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+            print(node.value)
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self):
-        pass
+        stack = []
+        stack.append(self) #append root node only
+
+        while len(stack) > 0:
+            node = stack.pop()
+            print(node.value)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
